@@ -17,7 +17,7 @@ Includes "Drastic Filter" PAK which switches between "Nearest Neighbor" and "bil
 - Unzip the NDS_MinUI.zip file.
 - Copy "NDS.pak" into the "/Emus/rgb30" folder on the SD card in slot 2.
 - Copy "Drastic filter.pak" into the "/Tools/rgb30" folder on the SD card in slot 2.
-- Following the guide below, select ONLY TWO LAYOUTS from the layouts folder included in the zip file and copy them to the root of the SD card in slot 2. By default, the PAK uses the layouts "bg_vertical.png" and "bg_vertical_ext.png" without you having to copy anything.
+- Following the guide below, select ONLY TWO LAYOUTS from the "layouts" folder included in the zip file and copy them to the root of the SD card in slot 2. By default, the PAK uses the layouts "bg_vertical.png" and "bg_vertical_ext.png" without you having to copy anything.
 - Create a folder named "Nintendo DS (NDS)" (without the quotes) inside the /Roms folder on the SD card in slot 2, where you will place the ROMs in .nds format.
 - Launch the game from the MinUI menu. The pack will create and save your game saves and save states in the /Saves/NDS folder.
 - To switch between "Nearest Neighbor" and "Bilinear filter," run "Drastic filter" from the Tools menu in MinUI.
