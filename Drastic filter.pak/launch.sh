@@ -2,6 +2,11 @@
 DIR="$(dirname "$0")"
 cd "$DIR"
 
+if [ "$PLATFORM" != "rgb30" ]; then
+    show.elf "$DIR/platform_error.png" 5
+    exit 1
+fi
+
 NDS_PAK="$SDCARD_PATH/Emus/$PLATFORM/NDS.pak"
 NDS_LAUNCH="$NDS_PAK/launch.sh"
 BG_NEAREST="$NDS_PAK/bg"

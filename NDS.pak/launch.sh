@@ -1,5 +1,11 @@
 #!/bin/sh
 export HOME="$(dirname "$0")"
+
+if [ "$PLATFORM" != "rgb30" ]; then
+    show.elf "$HOME/platform_error.png" 5
+    exit 1
+fi
+
 export PATH=$PATH:$HOME
 export LD_LIBRARY_PATH=$HOME/libs
 
