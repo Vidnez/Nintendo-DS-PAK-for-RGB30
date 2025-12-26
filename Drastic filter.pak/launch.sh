@@ -15,12 +15,12 @@ IMG_DIR="$DIR/img"
 
 OVERLAYS="bg_vertical_2ds.png bg_vertical_ext.png bg_vertical_full.png bg_vertical_gap.png bg_vertical.png"
 
-CURRENT_BINARY=$(grep -o "\.\/drastic[0-9]*" "$NDS_LAUNCH" | head -n 1)
+CURRENT_BINARY=$(grep -o "\./drastic[0-9]*" "$NDS_LAUNCH" | grep -v "CURRENT_BINARY" | grep -v "MD5_ROOT" | tail -n 1)
 
 if [ "$CURRENT_BINARY" = "./drastic" ]; then
     show.elf "$IMG_DIR/1.png" 3
     
-    sed -i 's/\.\/drastic /\.\/drastic2 /g' "$NDS_LAUNCH"
+    sed -i 's/\.\/drastic "\$1"/\.\/drastic2 "\$1"/g' "$NDS_LAUNCH"
     
     FOUND_OVERLAYS=""
     for overlay in $OVERLAYS; do
@@ -41,7 +41,7 @@ if [ "$CURRENT_BINARY" = "./drastic" ]; then
 elif [ "$CURRENT_BINARY" = "./drastic2" ]; then
     show.elf "$IMG_DIR/2.png" 3
     
-    sed -i 's/\.\/drastic2 /\.\/drastic /g' "$NDS_LAUNCH"
+    sed -i 's/\.\/drastic2 "\$1"/\.\/drastic "\$1"/g' "$NDS_LAUNCH"
     
     FOUND_OVERLAYS=""
     for overlay in $OVERLAYS; do

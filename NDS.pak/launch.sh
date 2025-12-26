@@ -18,7 +18,7 @@ BG_BILINEAR="$HOME/bg2"
 
 BG_IMAGES="bg_vertical_2ds.png bg_vertical_ext.png bg_vertical_full.png bg_vertical_gap.png bg_vertical.png"
 
-CURRENT_BINARY=$(grep -o "\.\/drastic[0-9]*" "$HOME/launch.sh" | head -n 1)
+CURRENT_BINARY=$(grep '^\s*\./drastic[0-9]*\s\+"\$1"' "$HOME/launch.sh" | grep -o '\./drastic[0-9]*' | head -n 1)
 
 check_and_fix_overlays() {
     local SOURCE_DIR=$1
@@ -108,7 +108,12 @@ LOOP_PID=$!
 
 cd "$HOME"
 export LD_PRELOAD=./libSDL2-2.0.so.0.3000.2
-./drastic "$1" > ./nds.log 2>&1
+
+if [ "$CURRENT_BINARY" = "./drastic2" ]; then
+    ./drastic "$1" > ./nds.log 2>&1
+else
+    ./drastic "$1" > ./nds.log 2>&1
+fi
 
 if [ -d "$BACKUP_DIR" ] && [ "$(ls -A "$BACKUP_DIR" 2>/dev/null)" ]; then
     cp -f "$BACKUP_DIR"/* "$SAVES_NDS/" 2>/dev/null
