@@ -25,7 +25,7 @@ Includes ***Drastic Filter PAK*** which switches between ***Nearest Neighbor*** 
 > To switch between ***Nearest Neighbor*** and ***Bilinear filter + LCD grid effect*** run ***Drastic filter*** from the Tools menu in MinUI.
 
 > [!IMPORTANT]
-> By default, when you first launch the PAK, the layouts ***bg_vertical_ext.png*** and ***bg_vertical.png*** are copied to the root of the SD card, in slot 2, for use. If you wish to change this, refer to the image below and select ***only*** two layouts from the ***layouts*** folder included in the zip file and replace the files in the root of the SD card, in slot 2, with the layouts you want.
+> The PAK can only use two layouts at a time. By default, when you first launch the PAK, the layouts ***bg_vertical_ext.png*** and ***bg_vertical.png*** are copied to the root of the SD card in slot 2 for use. If you want to change this, refer to the image below and select two layouts from the ***layouts*** folder included in the zip file. Then, replace the two files in the root of the SD card in slot 2 with the two layouts you want.
 
 <img width="1808" height="1400" alt="layouts" src="https://github.com/user-attachments/assets/35676ae7-6843-46ba-a0c9-ac817cba8f4c" />
 
