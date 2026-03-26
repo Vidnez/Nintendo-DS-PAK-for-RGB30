@@ -1,0 +1,29 @@
+name: Create Project Zip File
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Get repository name
+      id: get_repo_name
+      run: echo "REPO_NAME=$(basename $GITHUB_REPOSITORY)" >> $GITHUB_ENV
+
+    - name: Create the project zip file
+      run: |
+        # Use the 'zip' command to archive files, excluding the .git and .github directories
+        zip -r ${{ env.REPO_NAME }}.zip . -x .git/* .github/*
+    - name: Upload the zip file as an artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.REPO_NAME }}-archive
+        path: ${{ env.REPO_NAME }}.zip
+        retention-days: 5
