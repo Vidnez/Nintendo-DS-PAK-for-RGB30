@@ -20,10 +20,10 @@ jobs:
     - name: Create the project zip file
       run: |
         # Use the 'zip' command to archive files, excluding the .git and .github directories
-        zip -r ${{ env.REPO_NAME }}.zip . -x .git/* .github/*
+        zip -r NDS_MinUI.zip . -x .git/* .github/*
     - name: Upload the zip file as an artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ env.REPO_NAME }}-archive
-        path: ${{ env.REPO_NAME }}.zip
+        name: NDS_MinUI-archive
+        path: NDS_MinUI.zip
         retention-days: 5
