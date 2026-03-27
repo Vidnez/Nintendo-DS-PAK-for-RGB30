@@ -95,7 +95,7 @@ if [ -d "$SAVESTATES_DEST" ] && [ "$(ls -A "$SAVESTATES_DEST" 2>/dev/null)" ]; t
 fi
 
 GOV_PATH=/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-GOV_USER=ondemand
+GOV_USER=conservative
 CPU_PATH=/sys/devices/system/cpu/cpu0/cpufreq/scaling_setspeed
 CPU_SPEED_PERF=1992000
 echo $GOV_USER > $GOV_PATH
