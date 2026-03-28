@@ -115,9 +115,9 @@ cd "$HOME"
 export LD_PRELOAD=./libSDL2-2.0.so.0.3000.2
 
 if [ "$CURRENT_BINARY" = "./drastic2" ]; then
-    ./drastic2 "$1" > ./nds.log 2>&1
+    ./drastic "$1" > ./nds.log 2>&1
 else
-    ./drastic2 "$1" > ./nds.log 2>&1
+    ./drastic "$1" > ./nds.log 2>&1
 fi
 
 if [ -d "$BACKUP_DIR" ] && [ "$(ls -A "$BACKUP_DIR" 2>/dev/null)" ]; then
