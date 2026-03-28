@@ -95,11 +95,16 @@ if [ -d "$SAVESTATES_DEST" ] && [ "$(ls -A "$SAVESTATES_DEST" 2>/dev/null)" ]; t
 fi
 
 GOV_PATH=/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+MAX_PATH=/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+MIN_PATH=/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+
 GOV_USER=conservative
-CPU_PATH=/sys/devices/system/cpu/cpu0/cpufreq/scaling_setspeed
-CPU_SPEED_PERF=1992000
+CPU_MAX=1608000
+CPU_MIN=408000
+
 echo $GOV_USER > $GOV_PATH
-echo $CPU_SPEED_PERF > $CPU_PATH
+echo $CPU_MIN > $MIN_PATH
+echo $CPU_MAX > $MAX_PATH
 
 while :; do
     syncsettings.elf
@@ -110,9 +115,9 @@ cd "$HOME"
 export LD_PRELOAD=./libSDL2-2.0.so.0.3000.2
 
 if [ "$CURRENT_BINARY" = "./drastic2" ]; then
-    ./drastic "$1" > ./nds.log 2>&1
+    ./drastic2 "$1" > ./nds.log 2>&1
 else
-    ./drastic "$1" > ./nds.log 2>&1
+    ./drastic2 "$1" > ./nds.log 2>&1
 fi
 
 if [ -d "$BACKUP_DIR" ] && [ "$(ls -A "$BACKUP_DIR" 2>/dev/null)" ]; then
